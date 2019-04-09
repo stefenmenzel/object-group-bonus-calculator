@@ -31,6 +31,39 @@ const employees = [
   }
 ];
 
+
+function returnCalculatedBonus(employee){
+  //should return an object with employee bonus data 
+
+  let bonusPercent= 0;
+  
+  if (employee.reviewRating<=2){
+    //no bonus
+
+  }else if (employee.reviewRating===3){
+    bonusPercent = 0.04;
+    //bonus is 4% annual salary
+
+  }else if(employee.reviewRating===4){
+    bonusPercent = 0.06;
+    //bonus is 6%
+  }else if(employee.reviewRating===5){
+    bonusPercent = 0.10;
+    //bonus is 10%
+
+  }
+  
+  if(employee.employeeNumber.length ===4){
+    bonusPercent += 0.05;
+  }
+
+  if(employee.annualSalary>=65000){
+    bonusPercent -= 0.01;
+  }
+
+
+}//end returnCalculatedBonus
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
