@@ -82,8 +82,8 @@ function createEmployeeBonusObject(employee, bonusPercent){
     return {
       name: employee.name ,
       bonusPercentage: bonusPercent,
-      totalCompensation: employee.annualSalary + (bonusPercent * employee.annualSalary) ,
-      totalBonus: bonusPercent * employee.annualSalary
+      totalCompensation: parseInt(employee.annualSalary) + (bonusPercent * parseInt(employee.annualSalary)) ,
+      totalBonus: bonusPercent * parseInt(employee.annualSalary)
     }
 }
 
