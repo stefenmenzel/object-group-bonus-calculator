@@ -31,14 +31,21 @@ const employees = [
   }
 ];
 
+function displayEmployeeBonuses(employees){
+  for (let i = 0; i<employees.length; i++){
+    console.log(returnCalculatedBonus(employees[i]))
+  }
+}
 
 function returnCalculatedBonus(employee){
   //should return an object with employee bonus data 
 
   let bonusPercent= 0;
+
   
   if (employee.reviewRating<=2){
     //no bonus
+
 
   }else if (employee.reviewRating===3){
     bonusPercent = 0.04;
@@ -60,9 +67,27 @@ function returnCalculatedBonus(employee){
   if(employee.annualSalary>=65000){
     bonusPercent -= 0.01;
   }
-
+  
+  if(bonusPercent > 0.13){
+    bonusPercent = 0.13;
+  }else if(bonusPercent<0){
+    bonusPercent = 0.00
+  }
+       
+  return createEmployeeBonusObject(employee, bonusPercent);
 
 }//end returnCalculatedBonus
+
+function createEmployeeBonusObject(employee, bonusPercent){
+    return {
+      name: employee.name ,
+      bonusPercentage: bonusPercent,
+      totalCompensation: employee.annualSalary + (bonusPercent * employee.annualSalary) ,
+      totalBonus: bonusPercent * employee.annualSalary
+    }
+}
+
+
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -74,3 +99,5 @@ function returnCalculatedBonus(employee){
 // Ask questions when you don't.
 
 console.log( employees );
+
+displayEmployeeBonuses(employees);
